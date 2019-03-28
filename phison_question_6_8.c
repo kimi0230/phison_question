@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 /*
-Question 1
+Question 6
 給你一個sort好的陣列a[20] ，然後請你印出0 ~500的數字，
 如果數字在a[20] 裡面，則不要印出，請你用最少的cpu和memory int
 
-Question 2
+Question 7
 類似上題，function給一個數字b = 0, 1, 2, 3, 4時，分別印出0 ~99, 100 ~199,200
 ~299, 300 ~399,400 ~499之中，不在a [20] 裡面的數字，也是用最少的CPU跟memory。
 
-Question 3
+Question 8
 有一個陣列A[500]，裡面都是存node的struct，假設第一個開頭index叫做listhead，
 那我們要access這個list的第一個structnode就是A[listhead]，然後再透過 struct node
 裡的next找到下一個struct
@@ -104,7 +104,7 @@ void printArray(unsigned int *a, int size) {
 
 void printArrayRange(unsigned int *a, int b, int size) {
     int index = 0;
-    for (int i = b * 100; i <= (b + 1) * 100 - 1; i++) {
+    for (int i = b * 100; i < (b + 1) * 100; i++) {
         if (index < size && a[index] == i) {
             index++;
         } else {
@@ -115,11 +115,20 @@ void printArrayRange(unsigned int *a, int b, int size) {
 }
 
 int main() {
+    // Question 6
     unsigned int a[20] = {1,   5,   9,   11,  18,  21,  23,  53,  200, 230,
                           330, 331, 332, 333, 400, 401, 405, 430, 450, 480};
     printArray(a, 20);
 
-    // qusetion 2
+    // Question 7
     int b = 4; // b = 0, 1, 2, 3, 4
     printArrayRange(a, b, 20);
 }
+
+/*
+Copy from http://l4disgreat.blogspot.com/2016/04/blog-post.html
+and
+http://shihweiyao.pixnet.net/blog/post/221520785-%E7%BE%A4%E8%81%AF%E9%9D%A2%E8%A9%A6-%E9%9F%8C%E9%AB%94%E5%B7%A5%E7%A8%8B%E5%B8%AB
+and
+https://github.com/yllibliu/Phison_interview
+*/
